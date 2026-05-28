@@ -1,0 +1,348 @@
+/* ======= NAVBAR ======= */
+.navbar {
+  background: #1A2E5A;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 32px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar__logo img {
+  height: 52px;
+  width: auto;
+}
+
+.navbar__menu {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 4px;
+}
+
+.navbar__menu span {
+  display: block;
+  width: 26px;
+  height: 2px;
+  background: #ffffff;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.navbar__menu:hover span {
+  background: #7DB8E8;
+}
+
+/* ======= HERO ======= */
+.hero {
+  display: grid;
+  grid-template-columns: 45% 55%;
+  min-height: 480px;
+  background: #C8D4CE;
+}
+
+.hero__photo {
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+}
+
+.hero__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.hero__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 48px 48px 48px 40px;
+  gap: 24px;
+}
+
+.hero__eyebrow {
+  font-family: 'Arial', sans-serif;
+  font-size: 13px;
+  color: #444;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.hero__title {
+  font-family: 'Georgia', serif;
+  font-size: 32px;
+  font-weight: bold;
+  line-height: 1.35;
+  color: #1A2E5A;
+}
+
+/* ======= BOTÓN CTA ======= */
+.btn-cta {
+  background: #4A8CC8;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  padding: 16px 24px;
+  font-family: 'Arial', sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  cursor: pointer;
+  max-width: 340px;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.btn-cta:hover {
+  background: #1A2E5A;
+}
+
+.btn-cta:active {
+  transform: scale(0.98);
+}
+
+/* ======= RESPONSIVE (móvil) ======= */
+@media (max-width: 768px) {
+  .hero {
+    grid-template-columns: 1fr;
+    grid-template-rows: 280px auto;
+  }
+
+  .hero__content {
+    padding: 32px 24px;
+  }
+
+  .hero__title {
+    font-size: 24px;
+  }
+
+  .btn-cta {
+    max-width: 100%;
+  }
+}
+
+/* ===== SECCIÓN ACORDEÓN ===== */
+.acordeon-section {
+  max-width: 860px;
+  margin: 0 auto 60px;
+  padding: 0 24px;
+}
+
+.acordeon-section__header {
+  margin-bottom: 36px;
+}
+
+.acordeon-section__titulo {
+  font-family: 'Georgia', serif;
+  font-size: 28px;
+  font-weight: bold;
+  color: #1a1a1a;
+  line-height: 1.3;
+  margin-bottom: 10px;
+}
+
+.acordeon-section__subtitulo {
+  font-family: 'Arial', sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  color: #2BBFA4;
+}
+
+/* ===== ACORDEÓN ===== */
+.acordeon__item {
+  border-bottom: none;
+}
+
+.acordeon__cabecera {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  gap: 16px;
+}
+
+.acordeon__cabecera i {
+  font-size: 16px;
+  color: #4A7C8A;
+  transition: color 0.2s;
+  flex-shrink: 0;
+}
+
+.acordeon__item--abierto .acordeon__cabecera i {
+  color: #E85A3A;
+}
+
+.acordeon__titulo {
+  font-family: 'Nunito', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #4A7C8A;
+  transition: color 0.2s;
+}
+
+.acordeon__item--abierto .acordeon__titulo {
+  color: #E85A3A;
+}
+
+.acordeon__icono {
+  font-size: 14px;
+  color: #999;
+  flex-shrink: 0;
+}
+
+.acordeon__item--abierto .acordeon__icono {
+  color: #E85A3A;
+}
+
+.acordeon__contenido {
+  overflow: hidden;
+  padding: 0 4px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.acordeon__contenido p {
+  font-family: 'Arial', sans-serif;
+  font-size: 15px;
+  color: #444;
+  line-height: 1.7;
+}
+
+/* ===== SECCIÓN GARANTÍAS ===== */
+.garantias-section {
+  max-width: 860px;
+  margin: 0 auto 60px;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Caja alerta roja */
+.alerta-box {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border-left: 4px solid #E85A3A;
+  background: #fdf6f4;
+  border-radius: 0 8px 8px 0;
+  padding: 18px 20px;
+}
+
+.alerta-box__icono i {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #E85A3A;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 18px;
+}
+
+.alerta-box__texto p {
+  font-family: 'Nunito', sans-serif;
+  font-size: 15px;
+  color: #555;
+  line-height: 1.6;
+}
+
+.alerta-box__texto p:first-child {
+  font-size: 14px;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin-bottom: 4px;
+}
+/* Párrafo informativo */
+.garantias-section__parrafo {
+  font-family: 'Nunito', sans-serif;
+  font-size: 15px;
+  color: #444;
+  line-height: 1.75;
+}
+
+/* Frase destacada */
+.garantias-section__destacado {
+  font-family: 'Nunito', sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  color: #1a1a1a;
+  line-height: 1.6;
+}
+
+/* Link CTA verde */
+.garantias-section__cta {
+  font-family: 'Nunito', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #2BBFA4;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.garantias-section__cta:hover {
+  color: #1a9e87;
+}
+
+/* Caja pagos cómodos */
+.pagos-box {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border-left: 4px solid #1A2E5A;
+  background: #f4f7fc;
+  border-radius: 0 8px 8px 0;
+  padding: 18px 20px;
+}
+
+.pagos-box__icono i {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #1A2E5A;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 18px;
+}
+
+.pagos-box__texto p {
+  font-family: 'Nunito', sans-serif;
+  font-size: 15px;
+  color: #555;
+  line-height: 1.6;
+}
+
+.pagos-box__texto p:first-child {
+  font-size: 14px;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin-bottom: 4px;
+}
+
+.acordeon__lista {
+  margin-top: 12px;
+  padding-left: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.acordeon__lista li {
+  font-family: 'Nunito', sans-serif;
+  font-size: 15px;
+  color: #444;
+  line-height: 1.6;
+}
