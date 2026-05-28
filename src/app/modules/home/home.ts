@@ -23,31 +23,37 @@ export class Home {
     {
       titulo: 'Cancelar todas las deudas',
       contenido: 'Con la Ley de Segunda Oportunidad se pueden llegar a eliminar todo tipo de deudas. Es importante contar con la asistencia de un especialista que pueda analizar tu caso para brindarte la mejor estrategia legal.',
+      lista: [],
       abierto: false
     },
     {
       titulo: 'Máximo de 18 meses para el proceso',
       contenido: 'El proceso concursal tiene una duración máxima de 18 meses, durante los cuales nuestro equipo gestiona todos los trámites necesarios para la cancelación de tus deudas.',
+      lista: [],
       abierto: false
     },
     {
       titulo: 'Más rápido y más sencillo',
       contenido: 'La nueva ley simplifica considerablemente el proceso, reduciendo la burocracia y permitiendo una resolución más ágil de tu situación financiera.',
+      lista: [],
       abierto: false
     },
     {
       titulo: 'Mayor protección para la vivienda',
       contenido: 'La ley incluye mecanismos de protección para que puedas mantener tu vivienda habitual durante y después del proceso de cancelación de deudas.',
+      lista: [],
       abierto: false
     },
     {
       titulo: 'Cancela 20.000€ de deuda pública',
       contenido: 'Es posible cancelar hasta 20.000€ de deuda pública, incluyendo deudas con Hacienda y la Seguridad Social, gracias a las últimas modificaciones legislativas.',
+      lista: [],
       abierto: false
     },
     {
       titulo: 'Más económico para el deudor',
       contenido: 'Nuestro proceso está diseñado para ser accesible. Trabajamos con cuotas asequibles y sin necesidad de adelantar grandes cantidades para iniciar el procedimiento.',
+      lista: [],
       abierto: false
     }
   ];

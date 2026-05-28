@@ -2,32 +2,21 @@
 <nav class="navbar">
   <div class="navbar__logo">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 100" height="56" aria-label="Renova Concursal">
-      <clipPath id="left-half">
-        <rect x="0" y="0" width="50" height="100"/>
-      </clipPath>
-      <clipPath id="right-half">
-        <rect x="50" y="0" width="50" height="100"/>
-      </clipPath>
+      <clipPath id="left-half"><rect x="0" y="0" width="50" height="100"/></clipPath>
+      <clipPath id="right-half"><rect x="50" y="0" width="50" height="100"/></clipPath>
       <circle cx="50" cy="50" r="46" fill="#1A2E5A" clip-path="url(#left-half)"/>
       <circle cx="50" cy="50" r="46" fill="#4A8CC8" clip-path="url(#right-half)"/>
-      <text x="18" y="58" font-family="Arial Black, Arial" font-weight="900"
-            font-size="30" fill="white" letter-spacing="-1">R</text>
+      <text x="18" y="58" font-family="Arial Black, Arial" font-weight="900" font-size="30" fill="white" letter-spacing="-1">R</text>
       <circle cx="50" cy="52" r="3.5" fill="white"/>
-      <text x="56" y="58" font-family="Arial Black, Arial" font-weight="900"
-            font-size="30" fill="white">C</text>
-      <text x="112" y="46" font-family="Arial Black, Arial" font-weight="900"
-            font-size="26" fill="white" letter-spacing="1">RENOVA</text>
-      <text x="112" y="72" font-family="Arial, sans-serif" font-weight="400"
-            font-size="26" fill="#7DB8E8" letter-spacing="1">CONCURSAL</text>
+      <text x="56" y="58" font-family="Arial Black, Arial" font-weight="900" font-size="30" fill="white">C</text>
+      <text x="112" y="46" font-family="Arial Black, Arial" font-weight="900" font-size="26" fill="white" letter-spacing="1">RENOVA</text>
+      <text x="112" y="72" font-family="Arial, sans-serif" font-weight="400" font-size="26" fill="#7DB8E8" letter-spacing="1">CONCURSAL</text>
       <line x1="112" y1="78" x2="420" y2="78" stroke="#334d7a" stroke-width="0.8"/>
-      <text x="112" y="92" font-family="Arial, sans-serif" font-size="10"
-            fill="#8899BB" letter-spacing="3">ABOGADOS · SEGUNDA OPORTUNIDAD</text>
+      <text x="112" y="92" font-family="Arial, sans-serif" font-size="10" fill="#8899BB" letter-spacing="3">ABOGADOS · SEGUNDA OPORTUNIDAD</text>
     </svg>
   </div>
   <button class="navbar__menu" aria-label="Abrir menú">
-    <span></span>
-    <span></span>
-    <span></span>
+    <span></span><span></span><span></span>
   </button>
 </nav>
 
@@ -45,9 +34,8 @@
     <button class="btn-cta">Comenzar</button>
   </div>
 </section>
-<!-- ↑ HERO cerrado aquí -->
 
-<!-- ===== SECCIÓN ACORDEÓN ===== -->
+<!-- ===== PRIMER ACORDEÓN ===== -->
 <section class="acordeon-section">
   <div class="acordeon-section__header">
     <h2 class="acordeon-section__titulo">
@@ -57,71 +45,65 @@
       Solución rápida para personas y autónomos
     </p>
   </div>
-
   <div class="acordeon">
     <div
       class="acordeon__item"
       *ngFor="let item of acordeonItems; let i = index"
       [class.acordeon__item--abierto]="item.abierto"
     >
-     <button class="acordeon__cabecera" (click)="toggleItem(i)">
-  <span class="acordeon__titulo">{{ item.titulo }}</span>
-  <i class="fa-solid" [class.fa-angle-down]="!item.abierto" [class.fa-angle-up]="item.abierto"></i>
-</button>
-      <div class="acordeon__contenido"
-  [@desplegar]="item.abierto ? 'abierto' : 'cerrado'"
->
-  <p>{{ item.contenido }}</p>
-</div>
+      <button class="acordeon__cabecera" (click)="toggleItem(i)">
+        <span class="acordeon__titulo">{{ item.titulo }}</span>
+        <i class="fa-solid" [class.fa-angle-down]="!item.abierto" [class.fa-angle-up]="item.abierto"></i>
+      </button>
+      <div class="acordeon__contenido" [@desplegar]="item.abierto ? 'abierto' : 'cerrado'">
+        <p *ngIf="item.contenido" [innerHTML]="item.contenido"></p>
+        <ul class="acordeon__lista" *ngIf="$any(item).lista?.length > 0">
+  <li *ngFor="let punto of $any(item).lista">{{ punto }}</li>
+</ul>
+      </div>
     </div>
   </div>
 </section>
-<!-- ↑ ACORDEÓN cerrado aquí -->
 
 <!-- ===== SECCIÓN GARANTÍAS ===== -->
 <section class="garantias-section">
-
-  <!-- Caja alerta roja -->
   <div class="alerta-box">
     <div class="alerta-box__icono">
-  <i class="fa-solid fa-circle-exclamation" style="margin:auto"></i>
-</div>
+      <i class="fa-solid fa-circle-exclamation" style="margin:auto"></i>
+    </div>
     <div class="alerta-box__texto">
       <p><strong>¡MÁXIMA GARANTÍA LEGAL Y EN EL MENOR TIEMPO!</strong></p>
       <p>Con la nueva ley, el proceso es más rápido y económico. Te garantizamos la mejor estrategia legal para cancelar tus deudas sin errores ni demoras.</p>
     </div>
   </div>
 
-  <!-- Párrafo informativo -->
   <p class="garantias-section__parrafo">
     Puedes cancelar todas tus deudas legalmente si eres persona física o autónomo y
     cumples con los requisitos. Elimina préstamos personales, deudas de tarjetas,
     microcréditos e incluso parte de tu deuda pública.
   </p>
 
-  <!-- Frase destacada -->
   <p class="garantias-section__destacado">
     Empezamos de cero, recuperas tu tranquilidad. Sin adelantar dinero y sin moverte de casa.
   </p>
 
-  <!-- Link CTA -->
   <a class="garantias-section__cta">
     - Te ayudamos a reclamar ¡Comienza tu consulta gratis!
   </a>
 
-  <!-- Caja pagos cómodos -->
   <div class="pagos-box">
     <div class="pagos-box__icono">
-  <i class="fa-solid fa-hand-holding-dollar" style="margin:auto"></i>
-</div>
+      <i class="fa-solid fa-hand-holding-dollar" style="margin:auto"></i>
+    </div>
     <div class="pagos-box__texto">
       <p><strong>PAGOS CÓMODOS.</strong></p>
       <p>Te facilitamos el pago con cuotas fijas y asequibles. Realiza solo una mínima provisión de fondos para iniciar el proceso.</p>
     </div>
   </div>
+</section>
 
 <!-- ===== SEGUNDO ACORDEÓN ===== -->
-<section class="acordeon-section">
+<section class="acordeon-section acordeon-section--sin-cabecera">
   <div class="acordeon">
     <div
       class="acordeon__item"
@@ -132,14 +114,12 @@
         <span class="acordeon__titulo">{{ item.titulo }}</span>
         <i class="fa-solid" [class.fa-angle-down]="!item.abierto" [class.fa-angle-up]="item.abierto"></i>
       </button>
-  <div class="acordeon__contenido" [@desplegar]="item.abierto ? 'abierto' : 'cerrado'">
-  <p *ngIf="item.contenido" [innerHTML]="item.contenido"></p>
-  <ul class="acordeon__lista" *ngIf="item.lista && item.lista.length > 0">
-    <li *ngFor="let punto of item.lista">{{ punto }}</li>
-  </ul>
-</div>
+      <div class="acordeon__contenido" [@desplegar]="item.abierto ? 'abierto' : 'cerrado'">
+        <p *ngIf="item.contenido" [innerHTML]="item.contenido"></p>
+       <ul class="acordeon__lista" *ngIf="$any(item).lista?.length > 0">
+  <li *ngFor="let punto of $any(item).lista">{{ punto }}</li>
+</ul>
+      </div>
     </div>
   </div>
-</section>
-
 </section>

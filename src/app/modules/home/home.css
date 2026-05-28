@@ -50,6 +50,7 @@
   overflow: hidden;
   display: flex;
   align-items: flex-end;
+  background: #8a9e98;
 }
 
 .hero__photo img {
@@ -107,35 +108,24 @@
   transform: scale(0.98);
 }
 
-/* ======= RESPONSIVE (móvil) ======= */
-@media (max-width: 768px) {
-  .hero {
-    grid-template-columns: 1fr;
-    grid-template-rows: 280px auto;
-  }
-
-  .hero__content {
-    padding: 32px 24px;
-  }
-
-  .hero__title {
-    font-size: 24px;
-  }
-
-  .btn-cta {
-    max-width: 100%;
-  }
-}
-
 /* ===== SECCIÓN ACORDEÓN ===== */
 .acordeon-section {
   max-width: 860px;
-  margin: 0 auto 60px;
+  margin: 60px auto 0;
   padding: 0 24px;
+}
+
+.acordeon-section--sin-cabecera {
+  margin-top: 16px;
 }
 
 .acordeon-section__header {
   margin-bottom: 36px;
+  padding: 0;
+}
+
+.acordeon-section .acordeon {
+  padding-left: 13px;
 }
 
 .acordeon-section__titulo {
@@ -148,15 +138,19 @@
 }
 
 .acordeon-section__subtitulo {
-  font-family: 'Arial', sans-serif;
+  font-family: 'Nunito', sans-serif;
   font-size: 15px;
   font-weight: bold;
   color: #2BBFA4;
 }
 
-/* ===== ACORDEÓN ===== */
+/* ===== ACORDEÓN ITEMS ===== */
 .acordeon__item {
-  border-bottom: none;
+  border-top: 1px solid #e0e0e0;
+}
+
+.acordeon__item:last-child {
+  border-bottom: 1px solid #e0e0e0;
 }
 
 .acordeon__cabecera {
@@ -185,23 +179,13 @@
 
 .acordeon__titulo {
   font-family: 'Nunito', sans-serif;
-  font-size: 20px;
+  font-size: 17px;
   font-weight: 700;
   color: #4A7C8A;
   transition: color 0.2s;
 }
 
 .acordeon__item--abierto .acordeon__titulo {
-  color: #E85A3A;
-}
-
-.acordeon__icono {
-  font-size: 14px;
-  color: #999;
-  flex-shrink: 0;
-}
-
-.acordeon__item--abierto .acordeon__icono {
   color: #E85A3A;
 }
 
@@ -212,23 +196,37 @@
 }
 
 .acordeon__contenido p {
-  font-family: 'Arial', sans-serif;
+  font-family: 'Nunito', sans-serif;
   font-size: 15px;
   color: #444;
   line-height: 1.7;
 }
 
+.acordeon__lista {
+  margin-top: 12px;
+  padding-left: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.acordeon__lista li {
+  font-family: 'Nunito', sans-serif;
+  font-size: 15px;
+  color: #444;
+  line-height: 1.6;
+}
+
 /* ===== SECCIÓN GARANTÍAS ===== */
 .garantias-section {
   max-width: 860px;
-  margin: 0 auto 60px;
+  margin: 40px auto 0;
   padding: 0 24px;
   display: flex;
   flex-direction: column;
   gap: 24px;
 }
 
-/* Caja alerta roja */
 .alerta-box {
   display: flex;
   align-items: center;
@@ -264,7 +262,7 @@
   color: #1a1a1a;
   margin-bottom: 4px;
 }
-/* Párrafo informativo */
+
 .garantias-section__parrafo {
   font-family: 'Nunito', sans-serif;
   font-size: 15px;
@@ -272,7 +270,6 @@
   line-height: 1.75;
 }
 
-/* Frase destacada */
 .garantias-section__destacado {
   font-family: 'Nunito', sans-serif;
   font-size: 15px;
@@ -281,13 +278,13 @@
   line-height: 1.6;
 }
 
-/* Link CTA verde */
 .garantias-section__cta {
   font-family: 'Nunito', sans-serif;
   font-size: 15px;
   font-weight: 700;
   color: #2BBFA4;
   text-decoration: none;
+  cursor: pointer;
   transition: color 0.2s;
 }
 
@@ -295,7 +292,6 @@
   color: #1a9e87;
 }
 
-/* Caja pagos cómodos */
 .pagos-box {
   display: flex;
   align-items: center;
@@ -332,17 +328,27 @@
   margin-bottom: 4px;
 }
 
-.acordeon__lista {
-  margin-top: 12px;
-  padding-left: 36px;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
+/* ======= RESPONSIVE ======= */
+@media (max-width: 768px) {
+  .hero {
+    grid-template-columns: 1fr;
+    grid-template-rows: 280px auto;
+  }
 
-.acordeon__lista li {
-  font-family: 'Nunito', sans-serif;
-  font-size: 15px;
-  color: #444;
-  line-height: 1.6;
+  .hero__content {
+    padding: 32px 24px;
+  }
+
+  .hero__title {
+    font-size: 24px;
+  }
+
+  .btn-cta {
+    max-width: 100%;
+  }
+
+  .acordeon-section,
+  .garantias-section {
+    padding: 0 16px;
+  }
 }
