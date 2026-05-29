@@ -23,7 +23,7 @@
 <!-- ===== HERO ===== -->
 <section class="hero">
   <div class="hero__photo">
-    <img src="assets/abogados.png" alt="Equipo Renova Concursal" />
+      <img src="logo.png" alt="Equipo Renova Concursal"/>
   </div>
   <div class="hero__content">
     <p class="hero__eyebrow">¡Cancelamos tus deudas y empiezas de cero!</p>
@@ -123,3 +123,106 @@
     </div>
   </div>
 </section>
+
+<!-- ===== SECCIÓN PERFILES ===== -->
+<section class="perfiles-section">
+
+  <p class="perfiles-section__eyebrow">¿Te identificas?</p>
+  <h2 class="perfiles-section__titulo">Casos en los que podemos ayudarte</h2>
+
+  <div class="perfiles-cards">
+
+    <div class="perfil-card" *ngFor="let perfil of perfiles">
+      <div class="perfil-card__head">
+        <div class="perfil-card__num">{{ perfil.num }}</div>
+        <div class="perfil-card__head-content">
+          <span class="perfil-card__tag">{{ perfil.tag }}</span>
+          <p class="perfil-card__titulo">{{ perfil.titulo }}</p>
+          <p class="perfil-card__intro">{{ perfil.intro }}</p>
+        </div>
+      </div>
+      <div class="perfil-card__body">
+        <div class="perfil-card__sientes">
+          <p class="perfil-card__col-label">Lo que sientes</p>
+          <p class="perfil-card__quote">{{ perfil.quote }}</p>
+        </div>
+        <div class="perfil-card__encontraras">
+  <p class="perfil-card__col-label">Lo que encontrarás aquí</p>
+  <p class="perfil-card__col-text" [innerHTML]="perfil.encontraras"></p>
+</div>
+      </div>
+      <div class="perfil-card__footer">
+        <span class="perfil-card__footer-text">{{ perfil.footerText }}</span>
+        <span class="perfil-card__footer-cta">{{ perfil.footerCta }} →</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== SECCIÓN GARANTÍAS ===== -->
+<section class="garantias-section">
+  <div class="alerta-box">
+    <div class="alerta-box__icono">
+      <i class="fa-solid fa-circle-exclamation" style="margin:auto"></i>
+    </div>
+    <div class="alerta-box__texto">
+      <p><strong><u>El primer paso es una llamada de 20 minutos. Sin coste. Sin compromiso.</u></strong></p>
+      <p>Cuéntanos tu situación y un abogado especialista te dirá con claridad si puedes acogerte a la Ley de Segunda Oportunidad, qué deudas podrían cancelarse en tu caso concreto y cómo sería el proceso paso a paso.
+No tienes que traer documentación ni haber tomado ninguna decisión previa. Solo hace falta que des este primer paso. El resto lo resolvemos juntos.
+</p>
+    </div>
+  </div>
+  <div class="pagos-box">
+    <div class="pagos-box__icono">
+      <i class="fa-solid fa-hand-holding-dollar" style="margin:auto"></i>
+    </div>
+    <div class="pagos-box__texto">
+      <p><strong><u>Miles de personas en España ya han empezado de cero. Tú también puedes.</u></strong></p>
+      <p>Desde la reforma de 2022, la Ley de Segunda Oportunidad se ha convertido en una herramienta legal consolidada cuyos efectos están probados en los juzgados de toda España. No es una promesa ni un truco legal. Es un derecho reconocido por la ley que está ahí para ser utilizado.
+La única condición es dar el primer paso.
+</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECCIÓN FAQs ===== -->
+<section class="faq-section">
+
+  <!-- Columna izquierda: acordeón -->
+  <div class="faq-section__acordeon">
+
+    <div class="acordeon-section__header">
+      <p class="acordeon-section__eyebrow">Preguntas frecuentes sobre la Nueva Ley de Segunda Oportunidad</p>
+      <h2 class="acordeon-section__titulo">FAQs</h2>
+    </div>
+
+    <div class="acordeon">
+      <div
+        class="acordeon__item"
+        *ngFor="let item of faqItems; let i = index"
+        [class.acordeon__item--abierto]="item.abierto"
+      >
+  <button class="acordeon__cabecera" (click)="toggleFaq(i)">
+  <span class="acordeon__titulo">{{ item.titulo }}</span>
+  <i class="fa-solid fa-plus" *ngIf="!item.abierto"></i>
+  <i class="fa-solid fa-minus" *ngIf="item.abierto"></i>
+</button>
+  <div class="acordeon__contenido" [@desplegar]="item.abierto ? 'abierto' : 'cerrado'">
+  <p *ngIf="item.contenido" [innerHTML]="item.contenido"></p>
+  <ul class="acordeon__lista" *ngIf="$any(item).lista?.length > 0">
+    <li *ngFor="let punto of $any(item).lista">{{ punto }}</li>
+  </ul>
+</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Columna derecha: imagen -->
+  <div class="faq-section__imagen">
+    <img src="equipo-faq.png" alt="Equipo Renova Concursal" />
+  </div>
+
+</section>
+
