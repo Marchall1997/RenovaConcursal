@@ -1,11 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { trigger, state, style, transition, animate } from '@angular/animations';
+import { ToastrModule, ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ToastrModule],
   templateUrl: './home.html',
   styleUrl: './home.css',
   animations: [
@@ -18,6 +19,51 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
   ]
 })
 export class Home {
+  modal!: HTMLElement | null;
+  openBtn!: HTMLElement | null;
+  closeBtn!: HTMLElement | null;
+  successMsg!: HTMLElement | null;
+  select!: HTMLElement | null;
+  leadForm!: HTMLElement | null;
+  toastr = inject(ToastrService);
+  constructor() {}
+
+  ngOnInit() { 
+    this.modal = document.getElementById("leadModal");
+    this.openBtn = document.getElementById("openModal");
+    this.closeBtn = document.getElementById("closeModal");
+    this.successMsg = document.getElementById("successMsg");
+    this.select = document.getElementById("deudaSelect");
+    this.leadForm = document.getElementById("leadForm");
+
+    this.openBtn!.addEventListener("click", () => {
+      this.modal!.classList.add("active");
+      this.successMsg!.style.display = "none";
+    });
+
+    this.closeBtn!.addEventListener("click", () => {
+      this.modal!.classList.remove("active");
+    });
+
+    this.modal!.addEventListener("click", (e) => {
+      if (e.target === this.modal) {
+        this.modal!.classList.remove("active");
+      }
+    });
+
+    this.leadForm!.addEventListener("submit", () => {
+
+      setTimeout(() => {
+        document.getElementById("leadModal")!.classList.remove("active");
+        this.showToast();
+      }, 800);
+
+    });
+  }
+
+  showToast(){
+    this.toastr.success('Solicitud enviada');
+  }
 
   acordeonItems = [
     {
@@ -234,6 +280,5 @@ faqItems = [
 toggleFaq(index: number): void {
   this.faqItems[index].abierto = !this.faqItems[index].abierto;
 }
-
 } // ← única llave de cierre, aquí al final
 

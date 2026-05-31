@@ -31,7 +31,7 @@
       Abogados expertos en la<br>
       Ley de la Segunda Oportunidad
     </h1>
-    <button class="btn-cta">Comenzar</button>
+    <button class="btn-cta" id="openModal">Comenzar</button>
   </div>
 </section>
 
@@ -226,3 +226,54 @@ La única condición es dar el primer paso.
 
 </section>
 
+<!-- MODAL LEAD -->
+<div class="modal-overlay" id="leadModal">
+  <div class="modal">
+
+    <button class="modal-close" id="closeModal">×</button>
+
+    <h2>Cuéntanos tu caso</h2>
+    <!-- <p>Te llamamos para ayudarte a cancelar tus deudas</p> -->
+
+    <!-- <form
+      action="https://docs.google.com/forms/d/e/1FAIpQLSeYG080oMceu9hoAdc5tkqW6TsiKTIS7_oS0MbbrKWJSMaymA/formResponse"
+      method="POST"
+      
+    > -->
+    <form id="leadForm"
+      action="https://docs.google.com/forms/d/e/1FAIpQLSeYG080oMceu9hoAdc5tkqW6TsiKTIS7_oS0MbbrKWJSMaymA/formResponse"
+      method="POST"
+      target="hidden_iframe"
+    >
+<!-- target="hidden_iframe" -->
+      <input type="text" name="entry.1795421741" placeholder="Nombre" required />
+      <input type="text" name="entry.1298984372" placeholder="Apellidos" required />
+      <input type="email" name="entry.901114205" placeholder="Email" required />
+      <input type="tel" name="entry.621669840" placeholder="Teléfono" required />
+
+      <select name="entry.1101937771" id="deudaSelect" required>
+        <option value="">Importe de la deuda</option>
+        <option value="Opción 1">Opción 1</option>
+        <option value="Opción 2">Opción 2</option>
+        <option value="Opción 3">Opción 3</option>
+        <option value="otro">Otro</option>
+      </select>
+
+      <input type="text" name="entry.2132827445" placeholder="Ciudad" required />
+
+      <textarea name="entry.306332874" placeholder="Describe tu deuda"></textarea>
+
+      <button type="submit" class="modal-submit">
+        Enviar datos de contacto
+      </button>
+
+    </form>
+
+    <!-- <iframe name="hidden_iframe" style="display:none;"></iframe> -->
+    <iframe name="hidden_iframe" style="display:none;"></iframe>
+    <div class="success-msg" id="successMsg">
+      ✔ Hemos recibido tu solicitud. Te contactaremos pronto.
+    </div>
+
+  </div>
+</div>
