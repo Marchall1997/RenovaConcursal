@@ -1,3 +1,10 @@
+/* ======= RESET ======= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 /* ======= NAVBAR ======= */
 .navbar {
   background: #1A2E5A;
@@ -45,26 +52,28 @@
   min-height: 480px;
   background: #C8D4CE;
 }
-
 .hero__photo {
   overflow: hidden;
   display: flex;
   align-items: flex-end;
   background: #8a9e98;
   position: relative;
+  min-height: 480px;
 }
 
-.hero__photo img:first-child {
-  width: 100%;
-  height: 65%;
-  object-fit: cover;
-  object-position: top center;
+/* BORRA .hero__photo img:first-child — ya no tienes foto de equipo */
+
+.hero__watermark {
   position: absolute;
-  top: 15%;
-  left: 0;
-  opacity: 0.75;  /* ← 1 = opaco, 0 = transparente */;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 110%;
+  height: auto;
+  opacity: 2;
+  pointer-events: none;
+  z-index: 2;
 }
-
 .hero__content {
   display: flex;
   flex-direction: column;
@@ -131,6 +140,16 @@
 
 .acordeon-section .acordeon {
   padding-left: 13px;
+}
+
+.acordeon-section__eyebrow {
+  font-family: 'Nunito', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: #4A7C8A;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 6px;
 }
 
 .acordeon-section__titulo {
@@ -289,6 +308,7 @@
   font-weight: 700;
   color: #2BBFA4;
   text-decoration: none;
+  cursor: pointer;
   transition: color 0.2s;
 }
 
@@ -332,31 +352,6 @@
   margin-bottom: 4px;
 }
 
-/* ======= RESPONSIVE ======= */
-@media (max-width: 768px) {
-  .hero {
-    grid-template-columns: 1fr;
-    grid-template-rows: 280px auto;
-  }
-
-  .hero__content {
-    padding: 32px 24px;
-  }
-
-  .hero__title {
-    font-size: 24px;
-  }
-
-  .btn-cta {
-    max-width: 100%;
-  }
-
-  .acordeon-section,
-  .garantias-section {
-    padding: 0 16px;
-  }
-}
-
 /* ===== SECCIÓN PERFILES ===== */
 .perfiles-section {
   max-width: 860px;
@@ -388,7 +383,6 @@
   gap: 24px;
 }
 
-/* ===== TARJETA PERFIL ===== */
 .perfil-card {
   border-radius: 10px;
   overflow: hidden;
@@ -446,7 +440,6 @@
   line-height: 1.65;
 }
 
-/* Cuerpo dos columnas */
 .perfil-card__body {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -492,7 +485,6 @@
   line-height: 1.65;
 }
 
-/* Footer */
 .perfil-card__footer {
   background: #1A2E5A;
   padding: 14px 24px;
@@ -525,37 +517,7 @@
   background: #3a7ab8;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .perfil-card__body {
-    grid-template-columns: 1fr;
-  }
-
-  .perfil-card__sientes {
-    border-right: none;
-    border-bottom: 1px solid #dde6f0;
-  }
-
-  .perfil-card__footer {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-}
-
-.acordeon-section__eyebrow {
-  font-family: 'Nunito', sans-serif;
-  font-size: 11px;
-  font-weight: 700;
-  color: #4A7C8A;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-bottom: 6px;
-}
-
-.acordeon-section--faq {
-  margin-top: 60px;
-}
-
+/* ===== FAQ SECTION ===== */
 .faq-section {
   max-width: 100%;
   margin: 60px auto;
@@ -563,15 +525,16 @@
   display: grid;
   grid-template-columns: 1fr 620px;
   gap: 48px;
-  align-items: end;        /* ← alinea al fondo */
+  align-items: end;
   background: #f2f2f0;
 }
 
+.faq-section__acordeon {
+  min-width: 0;
+}
+
 .faq-section__imagen {
-  position: sticky;
-  top: auto;               /* ← quita el sticky */
-  bottom: 0;               /* ← se ancla abajo */
-  align-self: end;         /* ← se queda abajo del grid */
+  align-self: end;
 }
 
 .faq-section__imagen img {
@@ -583,13 +546,8 @@
 
 .faq-section .acordeon__cabecera {
   padding: 12px 4px;
-  max-width: 900px;  /* ← limita el ancho */
+  max-width: 900px;
 }
-
-.faq-section__acordeon {
-  min-width: 0;
-}
-
 
 .faq-section .acordeon__cabecera i {
   color: #aaa;
@@ -606,45 +564,26 @@
   color: #4A7C8A;
 }
 
-.faq-section__acordeon .acordeon__item {
-  border-top: none;   /* ← quita las líneas */
-  max-width: 740px;
-}
-
-.faq-section__acordeon .acordeon__item:last-child {
-  border-bottom: none;  /* ← quita la línea de abajo */
-  max-width: 740px;
-}
-
 .faq-section .acordeon__item--abierto .acordeon__titulo {
   color: #4A7C8A;
 }
 
-.faq-section .acordeon__item {
+.faq-section__acordeon .acordeon__item {
+  border-top: none;
+  border-bottom: none;
   background: transparent;
 }
 
 .faq-section__acordeon .acordeon {
-  padding-left: 100px;  /* ← ajusta el valor al gusto */
+  padding-left: 100px;
 }
 
 .faq-section__acordeon .acordeon-section__header {
-  padding-left: 80px;  /* ← mismo valor que el acordeón */
+  padding-left: 80px;
 }
 
 .faq-section .acordeon__contenido {
   padding-left: 24px;
-}
-
-/* Responsive */
-@media (max-width: 900px) {
-  .faq-section {
-    grid-template-columns: 1fr;
-  }
-
-  .faq-section__imagen {
-    display: none;
-  }
 }
 
 /* ===== MODAL ===== */
@@ -707,6 +646,7 @@
   border: 1px solid #ddd;
   border-radius: 6px;
   font-size: 14px;
+  font-family: 'Nunito', sans-serif;
 }
 
 .modal textarea {
@@ -721,7 +661,9 @@
   border: none;
   border-radius: 6px;
   font-weight: bold;
+  font-family: 'Nunito', sans-serif;
   cursor: pointer;
+  transition: background 0.2s;
 }
 
 .modal-submit:hover {
@@ -736,4 +678,98 @@
   color: #1b7a3a;
   border-radius: 6px;
   font-size: 14px;
+}
+
+/* ======= RESPONSIVE ======= */
+@media (max-width: 1024px) {
+  .hero {
+    grid-template-columns: 40% 60%;
+  }
+
+  .faq-section {
+    grid-template-columns: 1fr 400px;
+    padding: 40px 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 10px 16px;
+  }
+
+  .navbar__logo svg {
+    height: 40px;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    grid-template-rows: 300px auto;
+    min-height: auto;
+  }
+
+  .hero__photo {
+    min-height: 300px;
+  }
+
+  .hero__photo img:first-child {
+    height: 100%;
+    top: 0;
+  }
+
+  .hero__watermark {
+    width: 60%;
+  }
+
+  .hero__content {
+    padding: 32px 24px;
+  }
+
+  .hero__title {
+    font-size: 24px;
+  }
+
+  .btn-cta {
+    max-width: 100%;
+  }
+
+  .acordeon-section,
+  .garantias-section,
+  .perfiles-section {
+    padding: 0 16px;
+  }
+
+  .perfil-card__body {
+    grid-template-columns: 1fr;
+  }
+
+  .perfil-card__sientes {
+    border-right: none;
+    border-bottom: 1px solid #dde6f0;
+  }
+
+  .perfil-card__footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .faq-section {
+    grid-template-columns: 1fr;
+    padding: 32px 16px;
+  }
+
+  .faq-section__imagen {
+    display: none;
+  }
+
+  .faq-section__acordeon .acordeon {
+    padding-left: 0;
+  }
+
+  .faq-section__acordeon .acordeon-section__header {
+    padding-left: 0;
+  }
+
+  .faq-section .acordeon__titulo {
+    font-size: 15px;
+  }
 }

@@ -152,6 +152,10 @@ export class Home {
   toggleItem2(index: number): void {
     this.acordeonItems2[index].abierto = !this.acordeonItems2[index].abierto;
   }
+     abrirModal(): void {
+  document.getElementById('leadModal')!.classList.add('active');
+  document.getElementById('successMsg')!.style.display = 'none';
+}
   perfiles = [
   {
     num: '01',
@@ -243,13 +247,8 @@ faqItems = [
     abierto: false
   },
   {
-    titulo: '¿Qué es el BEPI?',
-    contenido: 'Es el Beneficio de Exoneración del Pasivo Insatisfecho y es lo que otorga un juez al final del proceso de Ley de Segunda Oportunidad, que exonera de pago, parcial o total, al deudor.',
-    abierto: false
-  },
-  {
-    titulo: '¿Qué es un mediador concursal?',
-    contenido: 'Anteriormente, se necesitaba el mediador concursal en el proceso de Ley de Segunda Oportunidad para la negociación con los acreedores. Luego de la las nuevas reformas, ya no es  necesario en el proceso al eliminarse la etapa de acuerdo extrajudicial. ',
+    titulo: '¿Qué es el EPI?',
+    contenido: 'Es la Exoneración del Pasivo Insatisfecho y es lo que otorga un juez al final del proceso de Ley de Segunda Oportunidad, que exonera de pago, parcial o total, al deudor.',
     abierto: false
   },
   {

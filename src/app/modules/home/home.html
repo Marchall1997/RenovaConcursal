@@ -23,7 +23,7 @@
 <!-- ===== HERO ===== -->
 <section class="hero">
   <div class="hero__photo">
-      <img src="logo.png" alt="Equipo Renova Concursal"/>
+      <img src="logo.png" alt="Equipo Renova Concursal" class="hero__watermark"/>
   </div>
   <div class="hero__content">
     <p class="hero__eyebrow">¡Cancelamos tus deudas y empiezas de cero!</p>
@@ -153,7 +153,7 @@
       </div>
       <div class="perfil-card__footer">
         <span class="perfil-card__footer-text">{{ perfil.footerText }}</span>
-        <span class="perfil-card__footer-cta">{{ perfil.footerCta }} →</span>
+        <span class="perfil-card__footer-cta" (click)="abrirModal()">{{ perfil.footerCta }} →</span>
       </div>
     </div>
 
