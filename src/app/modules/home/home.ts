@@ -56,8 +56,9 @@ export class Home {
       setTimeout(() => {
         document.getElementById("leadModal")!.classList.remove("active");
         this.showToast();
+        (this.leadForm as HTMLFormElement).reset();
       }, 800);
-
+      
     });
   }
 
