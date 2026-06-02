@@ -703,25 +703,31 @@
 
   .hero {
     grid-template-columns: 1fr;
-    grid-template-rows: 300px auto;
     min-height: auto;
   }
 
   .hero__photo {
-    min-height: 300px;
+    display: none;
   }
 
   .hero__photo img:first-child {
-    height: 100%;
+    height: 50%;
     top: 0;
   }
 
   .hero__watermark {
-    width: 60%;
+    position: relative; /* saca del absolute */
+    transform: none;
+    top: auto;
+    left: auto;
+    width: auto;      /* que respete sus proporciones */
+    height: 140px;    /* controlas por altura, no por ancho */
+    opacity: 1;
+    margin: auto;
   }
 
   .hero__content {
-    padding: 32px 24px;
+    padding: 24px 20px;
   }
 
   .hero__title {
@@ -771,5 +777,27 @@
 
   .faq-section .acordeon__titulo {
     font-size: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto; /* quita la fila fija de 300px */
+  }
+
+  .hero__photo {
+    min-height: 160px; /* mucho más baja en móvil */
+    justify-content: center;
+  }
+
+  .hero__watermark {
+    position: relative; /* saca del absolute */
+    transform: none;
+    top: auto;
+    left: auto;
+    width: 50%;          /* logo pequeño y centrado */
+    opacity: 1;
+    margin: auto;
   }
 }
