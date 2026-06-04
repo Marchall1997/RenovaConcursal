@@ -527,7 +527,13 @@
   gap: 48px;
   align-items: end;
   background: #f2f2f0;
+  margin-bottom: 0;  /* ← elimina el margen inferior */
 }
+
+.footer {
+  margin-top: 0;  /* ← por si acaso */
+}
+
 
 .faq-section__acordeon {
   min-width: 0;
@@ -799,5 +805,145 @@
     width: 50%;          /* logo pequeño y centrado */
     opacity: 1;
     margin: auto;
+  }
+}
+
+.cookie-banner {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #1A2E5A;
+  color: white;
+  padding: 20px 40px;
+  z-index: 9998;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.2);
+}
+
+.cookie-banner__texto p {
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  color: #ccd8e8;
+  line-height: 1.6;
+  margin-bottom: 4px;
+}
+
+.cookie-banner__link {
+  font-family: 'Nunito', sans-serif;
+  font-size: 13px;
+  color: #7DB8E8;
+  text-decoration: underline;
+}
+
+.cookie-banner__botones {
+  display: flex;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.cookie-banner__aceptar {
+  background: #4A8CC8;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.cookie-banner__aceptar:hover {
+  background: #3a7ab8;
+}
+
+.cookie-banner__rechazar {
+  background: none;
+  color: #ccd8e8;
+  border: 1px solid #4a6a8a;
+  border-radius: 6px;
+  padding: 10px 20px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.cookie-banner__rechazar:hover {
+  border-color: #7DB8E8;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .cookie-banner {
+    flex-direction: column;
+    padding: 20px 16px;
+    align-items: flex-start;
+  }
+
+  .cookie-banner__botones {
+    width: 100%;
+  }
+
+  .cookie-banner__aceptar,
+  .cookie-banner__rechazar {
+    flex: 1;
+    text-align: center;
+  }
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  background: white;
+  border-top: 1px solid #e0e6ef;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+}
+
+.footer__copy {
+  font-family: 'Nunito', sans-serif;
+  font-size: 13px;
+  color: #999;
+}
+
+.footer__links {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer__links a {
+  font-family: 'Nunito', sans-serif;
+  font-size: 13px;
+  color: #666;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer__links a:hover {
+  color: #1A2E5A;
+}
+
+.footer__links span {
+  color: #ccc;
+  font-size: 12px;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px 16px;
+    gap: 12px;
   }
 }
